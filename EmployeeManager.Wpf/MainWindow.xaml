@@ -26,7 +26,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="Refresh" Margin="10"/>
+            <Button Content="Refresh" Margin="10"
+                    Command="{Binding LoadCommand,Mode=OneWay}"/>
             <ListView Grid.Row="1"
                 ItemsSource="{Binding Employees,Mode=OneWay}"
                 SelectedItem="{Binding SelectedEmployee,Mode=TwoWay}"
@@ -62,7 +63,7 @@
             <CheckBox Grid.Row="6" Content="Is coffee drinker" Margin="10"
                 IsChecked="{Binding SelectedEmployee.IsCoffeeDrinker,Mode=TwoWay}"/>
             <Button Grid.Row="7" Content="Save" Margin="10 10 10 30"
-              IsEnabled="{Binding SelectedEmployee.CanSave,Mode=OneWay}"
+              Command="{Binding SelectedEmployee.SaveCommand,Mode=OneWay}"
               VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
         </Grid>
 
